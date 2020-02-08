@@ -1,7 +1,11 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'csv'
+seed_file = './lib/assets/input/cafes_2015.csv'
+
+CSV.foreach(seed_file, headers: true, header_converters: :symbol) do |row|
+  post = PostalCode.find_or_create_by!(code: row[:post_code])
+  post.cafes.create!(
+    name: row[:caferestaurant_name],
+    address: row[:street_address],
+    chairs: row[:number_of_chairs]
+  )
+end
