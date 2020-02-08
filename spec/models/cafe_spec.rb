@@ -21,7 +21,7 @@ RSpec.describe Cafe, type: :model do
       )
 
       expect(cafe1.postal_code).to eq(post_code)
-      expect(cafe1.category.name).to eq('ls1 small')
+      expect(cafe1.category).to eq('ls1 small')
     end
   end
 end
