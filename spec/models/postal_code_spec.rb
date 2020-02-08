@@ -16,5 +16,22 @@ RSpec.describe PostalCode, type: :model do
 
       expect(post.prefix).to eq('LS1')
     end
+
+    it 'correctly calculates number of ls2 cafes' do
+      post_code = PostalCode.create(code: 'LS2 5HU')
+
+      post_code.cafes.create!(
+        name: 'Adios',
+        address: '401 This Rocks',
+        chairs: 100
+      )
+      post_code.cafes.create!(
+        name: 'Vamos',
+        address: '403 This Rocks',
+        chairs: 200
+      )
+
+      expect(PostalCode.total_ls2_cafes).to eq(2)
+    end
   end
 end

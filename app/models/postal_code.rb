@@ -9,6 +9,12 @@ class PostalCode < ApplicationRecord
   # Relationships
   has_many :cafes
 
+  def self.total_ls2_cafes
+    Cafe.joins(:postal_code)
+        .where(postal_codes: {prefix: 'LS2' })
+        .count
+  end
+
   private
 
   def set_prefix
