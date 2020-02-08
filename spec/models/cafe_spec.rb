@@ -23,5 +23,53 @@ RSpec.describe Cafe, type: :model do
       expect(cafe1.postal_code).to eq(post_code)
       expect(cafe1.category).to eq('ls1 small')
     end
+
+    it 'correctly populates ls1 medium category small end' do
+      post_code = PostalCode.create(code: 'LS1 5HU')
+      cafe1 = post_code.cafes.create(
+        name: "Fluffy's",
+        address: '401 This Rocks',
+        chairs: 10
+      )
+
+      expect(cafe1.postal_code).to eq(post_code)
+      expect(cafe1.category).to eq('ls1 medium')
+    end
+
+    it 'correctly populates ls1 medium category large end' do
+      post_code = PostalCode.create(code: 'LS1 5HU')
+      cafe1 = post_code.cafes.create(
+        name: "Fluffy's",
+        address: '401 This Rocks',
+        chairs: 99
+      )
+
+      expect(cafe1.postal_code).to eq(post_code)
+      expect(cafe1.category).to eq('ls1 medium')
+    end
+
+    it 'correctly populates ls1 large category lower end' do
+      post_code = PostalCode.create(code: 'LS1 5HU')
+      cafe1 = post_code.cafes.create(
+        name: "Fluffy's",
+        address: '401 This Rocks',
+        chairs: 100
+      )
+
+      expect(cafe1.postal_code).to eq(post_code)
+      expect(cafe1.category).to eq('ls1 large')
+    end
+
+    it 'correctly populates ls1 large category higher end' do
+      post_code = PostalCode.create(code: 'LS1 5HU')
+      cafe1 = post_code.cafes.create(
+        name: "Fluffy's",
+        address: '401 This Rocks',
+        chairs: 10000
+      )
+
+      expect(cafe1.postal_code).to eq(post_code)
+      expect(cafe1.category).to eq('ls1 large')
+    end
   end
 end
