@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'User visits the postal code page' do
+describe 'User visits the category page' do
   describe 'to see aggregate Postal Code data' do
     it 'to give them info on Restuarants' do
       post_code = PostalCode.create(code: 'LS1 5HU')
@@ -50,15 +50,14 @@ describe 'User visits the postal code page' do
       )
 
       # User visits the root page
-      visit '/postal_codes'
+      visit '/categories'
 
-      expect(current_path).to eq(postal_codes_path)
+      expect(current_path).to eq('/categories')
 
       # User sees the table data
+      expect(page).to have_content('Category')
       expect(page).to have_content('Total Cafes')
       expect(page).to have_content('Total Chairs')
-      expect(page).to have_content('Chair Percentage')
-      expect(page).to have_content('Max Chairs')
     end
   end
 end
