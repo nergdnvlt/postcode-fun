@@ -6,6 +6,10 @@ RSpec.describe PostalCode, type: :model do
     # it { should validate_uniqueness_of :code }
   end
 
+  describe 'Relationships' do
+    it { should have_many :cafes }
+  end
+
   describe 'Instance Methods' do
     it 'saves the prefix correctly' do
       post = PostalCode.create!(code: 'LS1 ZHU')

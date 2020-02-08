@@ -4,6 +4,8 @@ class PostalCode < ApplicationRecord
 
   before_create :set_prefix
 
+  has_many :cafes
+
   private
 
   def set_prefix
