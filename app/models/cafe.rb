@@ -13,6 +13,10 @@ class Cafe < ApplicationRecord
   # Relationships
   belongs_to :postal_code
 
+  def self.chairs
+    Cafe.sum(:chairs)
+  end
+
   def percentile
     (location.to_f / PostalCode.total_ls2_cafes.to_f) * 100
   end

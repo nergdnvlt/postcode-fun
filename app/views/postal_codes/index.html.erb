@@ -1,0 +1,26 @@
+<h1>All Postal Codes</h1>
+<table>
+  <tr>
+    <th>Postal Code</th>
+    <th>Total Cafes</th>
+    <th>Total Chairs</th>
+    <th>Chair Percentage</th>
+    <th>Place With Max Chairs</th>
+  </tr>
+  <% @posts.each do |post| %>
+  <tr>
+    <td><%= post.code %></td>
+    <td><%= post.cafes.all.count %></td>
+    <td><%= post.chairs %></td>
+    <td><%= ((post.chairs.to_f / Cafe.chairs.to_f) * 100).round(2) %></td>
+    <td><%= post.cafes.where(chairs: post.cafes.maximum(:chairs)).first.name %></td>
+  </tr>
+  <% end %>
+</table>
+
+Total Percentage:
+<% count = 0 %>
+<% @posts.each do |post| %>
+  <% count += ((post.chairs.to_f / Cafe.chairs.to_f) * 100).round(2) %>
+<% end %>
+<%= count.round(2) %>
