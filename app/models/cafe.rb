@@ -4,14 +4,14 @@ class Cafe < ApplicationRecord
   # Fix Active Record Pluralization
   self.table_name = 'cafes'
 
-  # Validations
+  # Model Validations
   validates_presence_of :name, :address, :chairs
-
-  # Relationships
-  belongs_to :postal_code
 
   # Model - DB Callbacks
   after_create :set_category
+
+  # Relationships
+  belongs_to :postal_code
 
   private
 
