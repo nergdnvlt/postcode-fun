@@ -33,5 +33,26 @@ RSpec.describe PostalCode, type: :model do
 
       expect(PostalCode.total_ls2_cafes).to eq(2)
     end
+
+    it 'calculates number of chairs for that zip' do
+      code = PostalCode.create(code: 'LS1 WHU')
+      code.cafes.create(
+        name: "Odin's",
+        address: '402 This Rocks',
+        chairs: 100
+      )
+      code.cafes.create(
+        name: "Bob's",
+        address: '401 This Rocks',
+        chairs: 51
+      )
+      code.cafes.create(
+        name: "Ma's",
+        address: '401 This Rocks',
+        chairs: 25
+      )
+
+      expect(code.chairs).to eq(176)
+    end
   end
 end

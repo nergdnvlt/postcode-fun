@@ -15,6 +15,10 @@ class PostalCode < ApplicationRecord
         .count
   end
 
+  def chairs
+    cafes.sum(:chairs)
+  end
+
   private
 
   def set_prefix
