@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_02_08_210649) do
   enable_extension "plpgsql"
 
   create_table "postal_codes", force: :cascade do |t|
-    t.string "name"
+    t.string "code"
     t.string "prefix"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
