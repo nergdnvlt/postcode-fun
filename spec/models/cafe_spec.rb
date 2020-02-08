@@ -71,5 +71,17 @@ RSpec.describe Cafe, type: :model do
       expect(cafe1.postal_code).to eq(post_code)
       expect(cafe1.category).to eq('ls1 large')
     end
+
+    it 'correctly populates other category' do
+      post_code = PostalCode.create(code: 'LS5 5HU')
+      cafe1 = post_code.cafes.create(
+        name: "Fluffy's",
+        address: '401 This Rocks',
+        chairs: 100
+      )
+
+      expect(cafe1.postal_code).to eq(post_code)
+      expect(cafe1.category).to eq('other')
+    end
   end
 end

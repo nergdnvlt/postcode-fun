@@ -19,6 +19,8 @@ class Cafe < ApplicationRecord
     case postal_code.prefix
     when 'LS1'
       set_ls1_category
+    else
+      set_other_category
     end
   end
 end

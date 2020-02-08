@@ -1,4 +1,5 @@
 module CategoryEvaluator
+  # LS1 Category Classification
   def set_ls1_category
     if ls1_small?
       update!(category: 'ls1 small')
@@ -15,5 +16,10 @@ module CategoryEvaluator
 
   def ls1_medium?
     chairs >= 10 && chairs < 100
+  end
+
+  # Other Category Classification
+  def set_other_category
+    update!(category: 'other')
   end
 end
