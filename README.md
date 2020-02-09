@@ -51,6 +51,8 @@
 
 [Deployed Categories Page](https://postcode-fun.herokuapp.com/categories) <br />
 
+<br />
+
 7) Write a script in rails to:
     - For street_cafes categorized as small, write a script that exports their data to a csv and deletes the records
     - For street cafes categorized as medium or large, write a script that concatenates the category name to the beginning of the name and writes it back to the name column
