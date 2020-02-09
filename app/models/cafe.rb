@@ -1,5 +1,6 @@
 class Cafe < ApplicationRecord
   include CategoryEvaluator
+  include CsvInfo
 
   # Fix Active Record Pluralization
   self.table_name = 'cafes'
@@ -15,6 +16,10 @@ class Cafe < ApplicationRecord
 
   def self.chairs
     Cafe.sum(:chairs)
+  end
+
+  def self.headers
+    CsvInfo.headers
   end
 
   def percentile
