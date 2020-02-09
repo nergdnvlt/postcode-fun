@@ -7,7 +7,7 @@
 2) Download the data file from: https://github.com/gospotcheck/ps-code-challenge/blob/master/Street%20Cafes%202015-16.csv
 
 3) Add a varchar column to the table called `category`.  <br />
-  ![screenshot](lib/number_3_schema.png)  
+  ![screenshot](lib/assets/number_3_schema.png)  
   [Schema Link](https://github.com/nergdnvlt/postcode-fun/blob/master/db/schema.rb)  
 
 4) Create a view with the following columns[provide the view SQL]
