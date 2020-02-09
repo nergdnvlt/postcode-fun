@@ -41,7 +41,9 @@
 
   [Testing](https://github.com/nergdnvlt/postcode-fun/blob/master/spec/models/postal_code_spec.rb)  <br />
   `A note on testing this: I was having a strange issue with my database rolling back the changes in test. I verified that the right changes were happening both through the use of prod and then in my local dev environment. But for now I'm looking into whether or not database cleaner is rolling back my db changes between the controller and the view.` <br />
+  
   <br />
+  
 6) Write a custom view to aggregate the categories [provide view SQL AND the results of this view]
     - category: The category column
     - total_places: The number of places in that category
