@@ -13,4 +13,13 @@ class PagesController < ApplicationController
     end
     redirect_to root_path
   end
+
+  def alter
+    if MedLargeCategoryService.run
+      flash[:success] = 'Successfully altered medium and large cafes'
+    else
+      flash[:error] = 'Did not change medium and large category cafes'
+    end
+    redirect_to root_path
+  end
 end
